@@ -12,7 +12,7 @@ variable "region_numbers" {
   default = {
     us-east-1 = 0
     us-west-1 = 1
-    us-west-2 = 2
+    sa-east-1 = 2
     eu-west-1 = 3
   }
 }
