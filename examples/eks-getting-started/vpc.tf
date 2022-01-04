@@ -24,7 +24,7 @@ resource "aws_subnet" "demo" {
   vpc_id                  = aws_vpc.demo.id
 
   tags = tomap({
-    "Name"                                      = "terraform-eks-demo-node",
+    "Name"                                      = "terraform-eks-node",
     "kubernetes.io/cluster/${var.cluster-name}" = "shared",
   })
 }
@@ -42,13 +42,13 @@ resource "aws_route_table" "demo" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_internet_gateway.demo.id
+    gateway_id = igw-06b4b0876e89ac3d7
   }
 }
 
 resource "aws_route_table_association" "demo" {
   count = 2
 
-  subnet_id      = aws_subnet.demo.*.id[count.index]
-  route_table_id = aws_route_table.demo.id
+  subnet_id      = subnet-0e0099d7ef7f08497
+  route_table_id = rtb-046f779bb178ad88c
 }
